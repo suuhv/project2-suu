@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
+gem "bootstrap-sass", "3.3.6"
 gem "coffee-rails", "~> 4.2"
+gem "devise"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "puma", "~> 3.0"
@@ -27,10 +29,12 @@ group :development, :test do
   gem "reek"
   gem "rspec"
   gem "rspec-collection_matchers"
+  gem "rspec-html-matchers"
   gem "rspec-rails"
   gem "rubocop", "~> 0.35.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "scss_lint_reporter_checkstyle", require: false
+  gem "shoulda-matchers"
 end
 
 group :test do

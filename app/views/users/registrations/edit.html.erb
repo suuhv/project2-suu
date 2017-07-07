@@ -7,22 +7,30 @@
       url: registration_path(resource_name), html: {method: :put} do |f| %>
       <%= devise_error_messages! %>
 
+      <%= image_tag @user.avatar, size: Settings.user.avt_size100 %>
+      <%= f.file_field :avatar %>
+
+      <%= f.label :name, t(".name") %>
+      <%= f.text_field :name, class: "form-control" %>
+
       <div class="field">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
 
         <%= f.label :password %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
 
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control" %>
 
         <%= f.label :current_password %>
-        <%= f.password_field :current_password, autocomplete: "off" %>
+        <%= f.password_field :current_password, autocomplete: "off",
+          class: "form-control" %>
 
       <div class="actions">
         <%= f.submit yield(:button_text), class: "btn btn-primary" %>

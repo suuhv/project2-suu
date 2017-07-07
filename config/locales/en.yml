@@ -28,8 +28,8 @@ en:
     home:
       home: "Home"
       it_free: "It's free and always will be."
-      login: "Log in"
-      remember_me: "Remember me"
+      login: "Log in to Existing Account"
+      or: "or"
       signup: "Sign up now!"
       welcome: "Welcome to the MLOG"
   users:
@@ -63,14 +63,14 @@ en:
         unhappy: "Unhappy?"
     mailer:
       password_change:
-        change: "Change my password"
         hello: "Hello"
+        we: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        change: "Change my password"
         hello: "Hello"
         if: "If you didn't request this, please ignore this email."
         someone: "Someone has requested a link to change your password. You can do this through the link below."
-        we: "We're contacting you to notify you that your password has been changed."
         your: "Your password won't change until you access the link above and create a new one."
-      reset_password_instructions:
     shared:
       links:
         confirmation_instructions: "Didn't receive confirmation instructions?"
@@ -82,6 +82,7 @@ en:
       new:
         forgot: "Forgot your password?"
         new_password: "New password"
+        send_reset: "Send me reset password instructions"
       edit:
         change: "Change my password"
         change_pass: "Change your password"

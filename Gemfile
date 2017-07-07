@@ -14,7 +14,6 @@ gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
   gem "autoprefixer-rails"
-  gem "better_errors"
   gem "brakeman", require: false
   gem "bundler-audit"
   gem "byebug", platform: :mri

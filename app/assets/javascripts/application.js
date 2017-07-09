@@ -15,3 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+  $('#message-appli').fadeOut(3000);
+})

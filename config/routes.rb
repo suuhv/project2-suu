@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     post "signup", to: "users/registrations#create"
     delete "signout", to: "users/sessions#destroy"
   end
-  resources :users
+  concern :paginatable do
+    get "(page/:page)", action: :index, on: :collection, as: ""
+  end
+
+  resources :users, concerns: :paginatable
 end

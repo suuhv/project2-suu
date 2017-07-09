@@ -90,3 +90,12 @@ en:
         confirm: "Confirm new password"
         edit_password: "Edit password"
         new_pass: "New password"
+    index:
+      all_user: "All users"
+  views:
+    pagination:
+      first: "« FIRST"
+      last: "LAST »"
+      previous: "‹ PREV"
+      next: "NEXT ›"
+      truncate: "…"

@@ -1,3 +1,5 @@
 user:
+  avt_size_50: 50
   avt_size100: 100
   avt_size_150: 150
+  per_page: 15

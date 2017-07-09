@@ -4,20 +4,20 @@ en:
       base_title: "MLOG"
     footer:
       about: "About"
-      contact: "Contact"
       author: "© 2017 Quickly. All rights reserved | Design by "
+      contact: "Contact"
       name: "Ha Suu"
     header:
       account: "Account"
       help: "Help"
       home: "Home"
-      signin: "Log in"
       logout: "Log out"
-      profile: "Profile"
       mlog: "MLOG"
+      profile: "Profile"
       settings: " Settings"
-      users: "Users"
+      signin: "Log in"
       signup: "Sign up"
+      users: "Users"
   static_pages:
     about:
       about: "About"
@@ -32,3 +32,60 @@ en:
       remember_me: "Remember me"
       signup: "Sign up now!"
       welcome: "Welcome to the MLOG"
+  users:
+    sessions:
+      new:
+        email: "Email"
+        login: "Login"
+        new: "New user? "
+        passsword: "Password"
+        remember_me: "Remember me on this computer"
+        signup: "Sign up now"
+    registrations:
+      new:
+        signup: "Sign up"
+        submit: "Create an account"
+      form:
+        confimation: "Password confimation"
+        email: "Email"
+        name: "Name"
+        password: "Password"
+      edit:
+        back: "Back"
+        cancel: "Cancel my account"
+        confimation: "Password confimation"
+        edit_user: "Edit"
+        email: "Email"
+        name: "Name"
+        password: "Password"
+        save: "Save"
+        sure: "Are you sure?"
+        unhappy: "Unhappy?"
+    mailer:
+      password_change:
+        change: "Change my password"
+        hello: "Hello"
+        hello: "Hello"
+        if: "If you didn't request this, please ignore this email."
+        someone: "Someone has requested a link to change your password. You can do this through the link below."
+        we: "We're contacting you to notify you that your password has been changed."
+        your: "Your password won't change until you access the link above and create a new one."
+      reset_password_instructions:
+    shared:
+      links:
+        confirmation_instructions: "Didn't receive confirmation instructions?"
+        forgot: "Forgot your password?"
+        login: "Login"
+        signup: "Sign up"
+        unlock_instructions: "Didn't receive unlock instructions?"
+    passwords:
+      new:
+        forgot: "Forgot your password?"
+        new_password: "New password"
+      edit:
+        change: "Change my password"
+        change_pass: "Change your password"
+        character_min: "characters minimum"
+        confirm: "Confirm new password"
+        edit_password: "Edit password"
+        new_pass: "New password"

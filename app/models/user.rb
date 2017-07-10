@@ -14,4 +14,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
+
+  def feed
+    Post.where("user_id = ?", id)
+  end
 end

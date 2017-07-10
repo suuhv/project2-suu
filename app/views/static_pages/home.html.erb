@@ -1,7 +1,19 @@
 <% provide :title, t(".home") %>
 <% if user_signed_in? %>
-  <h1><%= t ".home" %></h1>
-  <%= current_user.email %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render "users/shared/user_info" %>
+      </section>
+      <section class="micropost_form">
+        <%= render "users/shared/post_form" %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3><%= t ".micropost_feed" %></h3>
+      <%= render "users/shared/feed" %>
+    </div>
+  </div>
 <% else %>
   <div class="row jumbotron">
     <div class="center">

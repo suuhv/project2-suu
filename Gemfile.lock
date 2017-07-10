@@ -51,6 +51,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -280,6 +283,18 @@ GEM
       multi_json (~> 1.0)
       therubyracer (~> 0.12.1)
     json (1.8.6)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     libv8 (3.16.14.19)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -477,6 +492,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  bootstrap-kaminari-views
   bootstrap-sass (= 3.3.6)
   brakeman
   bundler-audit
@@ -493,6 +509,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jshint
+  kaminari
   listen (~> 3.0.5)
   mini_magick (= 4.7.0)
   puma (~> 3.0)

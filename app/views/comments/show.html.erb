@@ -1,0 +1,10 @@
+<% byebug %>
+<%= form_for [@post, @comment], remote: true do |f| %>
+<div class="input-group">
+  <%= f.text_field :content, placeholder: "Add comment",
+    class: "form-control comment-field" %>
+    <div class="input-group-btn">
+      <%= f.submit "Comment", class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>

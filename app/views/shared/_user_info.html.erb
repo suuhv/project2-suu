@@ -1,8 +1,15 @@
 <div class="user_info col-md-12">
   <div class="col-md-6">
-    <%= image_tag current_user.avatar, size: Settings.user.avt_size_150 %>
+    <%= link_to image_tag(@user.avatar, size: Settings.user.avt_size_150), @user %>
   </div>
   <div class="col-md-6">
-    <h1><%= current_user.name %></h1>
+    <div class="username-profile">
+      <%= @user.name %>
+    </div>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <%= render "users/follow_form" if user_signed_in? %>
   </div>
+
 </div>

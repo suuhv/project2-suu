@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :correct_user, only: :destroy
+  before_action :find_post, only: [:show, :edit, :update]
   before_action :authenticate_user!
 
   def create
@@ -14,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by id: params[:id]
   end
 
   def destroy
@@ -23,10 +23,13 @@ class PostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def edit
+  end
+
   def update
-    if @post.update post_params
+    if @post.update_attributes post_params
       flash[:success] = t ".update_post"
-      redirect_to post_path @post
+      redirect_to root_url
     else
       flash.now[:danger] = t ".update_fail"
       render :edit
@@ -42,5 +45,9 @@ class PostsController < ApplicationController
   def correct_user
     @post = current_user.posts.find_by(id: params[:id])
     redirect_to root_url if @post.nil?
+  end
+
+  def find_post
+    @post = Post.find_by id: params[:id]
   end
 end

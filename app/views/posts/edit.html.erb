@@ -1,12 +1,16 @@
-<%= form_for @post do |f| %>
-  <div class="field">
-    <%= f.label :title, t(".title") %>
-    <%= f.text_field :title, placeholder: t(".add_title") %>
-    <%= f.label :content, t(".content") %>
-    <%= f.text_area :content, placeholder: t(".compose") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @post do |f| %>
+      <div class="field">
+        <%= f.label :title, t(".title") %>
+        <%= f.text_field :title %>
+        <%= f.label :content, t(".content") %>
+        <%= f.text_area :content %>
+      </div>
+      <%= f.submit t(".update"), class: "btn btn-primary" %>
+      <span class="picture">
+        <%= f.file_field :picture %>
+      </span>
+    <% end %>
   </div>
-  <%= f.submit t(".post"), class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture %>
-  </span>
-<% end %>
+</div>

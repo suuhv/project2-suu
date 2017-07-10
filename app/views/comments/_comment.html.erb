@@ -1,17 +1,28 @@
   <div class="content-ls">
-    <span class="username"><%= link_to comment.user.name, comment.user %></span>
-    <%= comment.content %>
-    <small>
-      <div class="text-left">
-      <%= time_ago_in_words(comment.created_at) %>
+    <div class="col-md-12">
+      <div class="col-md-1">
+        <%= link_to image_tag(comment.user.avatar, size: Settings.user.avt_size_40),
+          comment.user %>
       </div>
-      <div class="text-right">
-        <% if current_user? comment.user ||
-       current_user?(post.user) %>
-            <%= link_to "Edit", "#" %>
-            <%= link_to "Delete", [comment.post, comment],
-              method: :delete, remote: true, data: {confirm: "You sure!"},class: "delete" %>
-        <% end %>
+      <div class="col-md-11">
+      <span class="username">
+        <%= link_to comment.user.name, comment.user %>
+      </span>
+      <%= comment.content %>
+      <small>
+        <div class="text-left">
+        <%= time_ago_in_words(comment.created_at) %>
+        </div>
+        <div class="text-right">
+          <% if current_user? comment.user ||
+            current_user?(post.user) %>
+              <%= link_to t(".edit"), "#" %>
+              <%= link_to t(".delete"), [comment.post, comment],
+                method: :delete, remote: true, data: {confirm: t(".sure")},class: "delete" %>
+          <% end %>
+        </div>
+      </small>
       </div>
-    </small>
+
+    </div>
   </div>

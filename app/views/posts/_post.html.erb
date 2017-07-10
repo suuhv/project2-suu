@@ -1,37 +1,49 @@
 <div class="well">
   <div class="media-body">
     <li id="post-<%= post.id %>">
-      <%= link_to image_tag(post.user.avatar, size: Settings.user.avt_size_50),
-        post.user %>
-      <span class="user"><%= link_to post.user.name, post.user %></span>
+      <div class="col-md-12">
+        <div class="col-md-1">
+          <%= link_to image_tag(post.user.avatar, size: Settings.user.avt_size_50),
+            post.user %>
+        </div>
+        <div class="col-md-11">
+          <span class="user-name">
+            <%= link_to post.user.name, post.user %>
+          </span>
+          <span class="timestamp">
+            <%= t ".posted" %> <%= time_ago_in_words post.created_at %>
+              <%= t ".ago" %>
+            <% if current_user == post.user %>
+            <div class="text-right">
+                <%= link_to t(".edit"), edit_post_path(post) %>
+                <%= link_to t(".delete"), post, method: :delete,
+                  data: {confirm: t(".sure")} %>
+            </div>
+            <% end %>
+          </span>
+        </div>
+      </div>
       <span class="content">
-        <b><%= post.title %></b><br>
+        <div class="post-title">
+          <%= post.title %>
+        </div>
         <%= post.content %>
         <%= image_tag post.picture.url if post.picture? %>
-      </span>
-      <span class="timestamp">
-        <%= t ".posted" %> <%= time_ago_in_words post.created_at %>
-          <%= t ".ago" %>
-        <% if current_user == post.user %>
-        <div class="text-right">
-            <%= link_to t(".edit"), edit_post_path(post) %>
-            <%= link_to t(".delete"), post, method: :delete,
-              data: {confirm: t(".sure")} %>
-        </div>
-        <% end %>
       </span>
 
       <li class="ds">
         <%= render partial: "comments/comment", collection: post.comments, as: "comment" %>
       </li>
-      <%= form_for [post, post.comments.build], remote: true do |f| %>
-        <div class="input-group">
-          <%= f.text_field :content, placeholder: "Add comment",
-            class: "form-control comment-field" %>
-            <div class="input-group-btn">
-              <%= f.submit "Comment", class: "btn btn-default" %>
+      <% if user_signed_in? && (current_user.following?(post.user) || post.user) %>
+        <%= form_for [post, post.comments.build], remote: true do |f| %>
+          <div class="input-group">
+            <%= f.text_field :content, placeholder: "Add comment",
+              class: "form-control comment-field" %>
+              <div class="input-group-btn">
+                <%= f.submit "Comment", class: "btn btn-default" %>
+              </div>
             </div>
-          </div>
+        <% end %>
       <% end %>
   </div>
 </div>

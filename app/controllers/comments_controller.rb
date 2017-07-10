@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :find_post, only: [:create]
-  before_action :find_comment, only: [:destroy]
+  before_action :find_post, only: [:create, :edit, :update]
+  before_action :find_comment, only: [:destroy, :edit, :udate]
 
   def create
     @comment = @post.comments.build comment_params
@@ -10,6 +10,17 @@ class CommentsController < ApplicationController
       render json: {status: :success, html: render_to_string(@comment)}
     else
       render json: {status: :error, error: "false"}
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @comment.update comments_params
+      redirect_to root_url
+    else
+      render :edit
     end
   end
 

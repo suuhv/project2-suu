@@ -1,4 +1,9 @@
 en:
+  comments:
+    comment:
+      edit: "Edit"
+      delete: "Delete"
+      sure: "You sure!"
   layouts:
     application:
       base_title: "MLOG"
@@ -99,7 +104,15 @@ en:
       unfollow: "Unfollow"
     follow:
       follow: "Follow"
+    followers:
+      followers: "Followers"
+    following:
+      following: "Following"
   posts:
+    edit:
+      title: "Title"
+      content: "Content"
+      update: "Update post!"
     post:
       sure: "You sure"
       delete: "Delete"

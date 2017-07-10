@@ -11,4 +11,18 @@ class UsersController < ApplicationController
     @users = User.select(:id, :avatar, :name, :email).order(:id).page(params[:page])
       .per Settings.user.per_page
   end
+
+  def following
+    @title = t ".following"
+    @user = User.find_by id: params[:id]
+    @users = @user.following.page(params[:page]).per Settings.user.per_page
+    render "show_follow"
+  end
+
+  def followers
+    @title = t ".followers"
+    @user = User.find_by id: params[:id]
+    @users = @user.followers.page(params[:page]).per Settings.user.per_page
+    render "show_follow"
+  end
 end

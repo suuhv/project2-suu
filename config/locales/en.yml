@@ -72,13 +72,9 @@ en:
         someone: "Someone has requested a link to change your password. You can do this through the link below."
         your: "Your password won't change until you access the link above and create a new one."
     shared:
-      post_form:
-        title: "Title *"
-        add_title: "Add title ..."
-        content: "Content post *"
-        compose: "Compose new post"
-        post: "Post"
-      user_info:
+      stats:
+        following: "Following"
+        followers: "Followers"
       links:
         confirmation_instructions: "Didn't receive confirmation instructions?"
         forgot: "Forgot your password?"
@@ -99,6 +95,10 @@ en:
         new_pass: "New password"
     index:
       all_user: "All users"
+    unfollow:
+      unfollow: "Unfollow"
+    follow:
+      follow: "Follow"
   posts:
     post:
       sure: "You sure"
@@ -118,3 +118,11 @@ en:
       previous: "‹ PREV"
       next: "NEXT ›"
       truncate: "…"
+  shared:
+    post_form:
+      title: "Title *"
+      add_title: "Add title ..."
+      content: "Content post *"
+      compose: "Compose new post"
+      post: "Post"
+    user_info:

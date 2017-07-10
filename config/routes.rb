@@ -20,6 +20,13 @@ Rails.application.routes.draw do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
 
-  resources :users, concerns: :paginatable
-  resources :posts
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :posts do
+    resources :comments
+  end
+  resources :relationships, only: [:create, :destroy]
 end

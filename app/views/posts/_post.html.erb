@@ -7,15 +7,31 @@
       <span class="content">
         <b><%= post.title %></b><br>
         <%= post.content %>
+        <%= image_tag post.picture.url if post.picture? %>
       </span>
       <span class="timestamp">
         <%= t ".posted" %> <%= time_ago_in_words post.created_at %>
           <%= t ".ago" %>
+        <% if current_user == post.user %>
         <div class="text-right">
             <%= link_to t(".edit"), edit_post_path(post) %>
             <%= link_to t(".delete"), post, method: :delete,
               data: {confirm: t(".sure")} %>
         </div>
+        <% end %>
       </span>
+
+      <li class="ds">
+        <%= render partial: "comments/comment", collection: post.comments, as: "comment" %>
+      </li>
+      <%= form_for [post, post.comments.build], remote: true do |f| %>
+        <div class="input-group">
+          <%= f.text_field :content, placeholder: "Add comment",
+            class: "form-control comment-field" %>
+            <div class="input-group-btn">
+              <%= f.submit "Comment", class: "btn btn-default" %>
+            </div>
+          </div>
+      <% end %>
   </div>
 </div>

@@ -10,4 +10,13 @@
       </div>
     </div>
   </div>
+  <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <h3><%= t ".post" %>(<%= @user.posts.size %>)</h3>
+      <ol class="microposts">
+        <%= render @posts %>
+      </ol>
+    <% end %>
+    <%= paginate @posts, theme: "twitter-bootstrap-3" %>
+  </div>
 </div>

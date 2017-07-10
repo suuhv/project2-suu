@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
 
   resources :users, concerns: :paginatable
+  resources :posts
 end

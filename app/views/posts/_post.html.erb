@@ -1,0 +1,21 @@
+<div class="well">
+  <div class="media-body">
+    <li id="post-<%= post.id %>">
+      <%= link_to image_tag(post.user.avatar, size: Settings.user.avt_size_50),
+        post.user %>
+      <span class="user"><%= link_to post.user.name, post.user %></span>
+      <span class="content">
+        <b><%= post.title %></b><br>
+        <%= post.content %>
+      </span>
+      <span class="timestamp">
+        <%= t ".posted" %> <%= time_ago_in_words post.created_at %>
+          <%= t ".ago" %>
+        <div class="text-right">
+            <%= link_to t(".edit"), edit_post_path(post) %>
+            <%= link_to t(".delete"), post, method: :delete,
+              data: {confirm: t(".sure")} %>
+        </div>
+      </span>
+  </div>
+</div>

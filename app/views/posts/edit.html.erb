@@ -1,0 +1,12 @@
+<%= form_for @post do |f| %>
+  <div class="field">
+    <%= f.label :title, t(".title") %>
+    <%= f.text_field :title, placeholder: t(".add_title") %>
+    <%= f.label :content, t(".content") %>
+    <%= f.text_area :content, placeholder: t(".compose") %>
+  </div>
+  <%= f.submit t(".post"), class: "btn btn-primary" %>
+  <span class="picture">
+    <%= f.file_field :picture %>
+  </span>
+<% end %>

@@ -1,0 +1,5 @@
+<% @tag_posts.each do |post| %>
+  <div class="col-md-8 col-md-offset-2">
+    <%= render "posts/post", post: post %>
+  </div>
+<% end %>

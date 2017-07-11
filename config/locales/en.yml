@@ -113,6 +113,7 @@ en:
       title: "Title"
       content: "Content"
       update: "Update post!"
+      tag: "Tag"
     post:
       sure: "You sure"
       delete: "Delete"
@@ -138,4 +139,6 @@ en:
       content: "Content post *"
       compose: "Compose new post"
       post: "Post"
+      tag: "Add tag:"
+      add_tag: "Add tag split (,) "
     user_info:

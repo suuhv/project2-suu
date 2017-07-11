@@ -6,6 +6,8 @@
         <%= f.text_field :title %>
         <%= f.label :content, t(".content") %>
         <%= f.text_area :content %>
+        <%= f.label :all_tags, t(".tag") %>
+        <%= f.text_field :all_tags %>
       </div>
       <%= f.submit t(".update"), class: "btn btn-primary" %>
       <span class="picture">

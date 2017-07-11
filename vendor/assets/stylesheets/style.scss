@@ -20,6 +20,10 @@ textarea {
   resize: vertical;
 }
 
+.tagged-post {
+  margin: 15px 0 15px;
+}
+
 .center {
   text-align: center;
 
@@ -64,12 +68,20 @@ p {
   line-height: 1.7em;
 }
 
+.avatar-user {
+  float: left;
+  width: 7%;
+}
+
 .well {
   border-style: outset;
 }
 
 .input-group {
   border-style: double;
+  float: left;
+  width: 93%;
+  margin-top: 0;
 }
 
 .post-title {
@@ -85,6 +97,25 @@ p {
 .username-profile {
   font-size: 150%;
 }
+
+.post-tag {
+  color: $red;
+}
+
+.tag-cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+.new_comment {
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+
 // header
 .logo {
   float: left;
@@ -311,22 +342,17 @@ input {
   .content {
     display: block;
     margin-left: 30px;
-
-    img {
-      display: block;
-      padding: 5px 0;
-    }
   }
+}
 
-  .timestamp {
-    color: $light-gray;
+.content {
     display: block;
-  }
+    margin-left: 30px;
+}
 
-  .gravatar {
-    float: left;
-    margin: 5px 10px;
-  }
+.timestamp {
+  color: $light-gray;
+  display: block;
 }
 
 span {
@@ -347,4 +373,10 @@ span {
 .edit-delete {
   position: absolute;
   right: 20px;
+}
+
+.image-post {
+  img {
+    width: 100%;
+  }
 }

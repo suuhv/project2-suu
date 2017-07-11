@@ -3,6 +3,13 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update]
   before_action :authenticate_user!
 
+  def index
+    if params[:tag]
+      @post = Post.tagged_with(params[:tag])
+    else
+      @post = Post.all
+    end
+  end
   def create
     @post = current_user.posts.build post_params
     if @post.save
@@ -29,7 +36,7 @@ class PostsController < ApplicationController
   def update
     if @post.update_attributes post_params
       flash[:success] = t ".update_post"
-      redirect_to root_url
+      redirect_to @post
     else
       flash.now[:danger] = t ".update_fail"
       render :edit
@@ -39,7 +46,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit :title, :content, :picture
+    params.require(:post).permit :title, :content, :picture, :all_tags
   end
 
   def correct_user

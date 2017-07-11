@@ -1,3 +1,4 @@
+<% @posts.each do |post| %>
 <div class="well">
   <div class="media-body">
     <div id="post-<%= post.id %>">
@@ -39,27 +40,8 @@
           <%= image_tag post.picture.url if post.picture? %>
         </div>
       </span>
-      <div class="ds">
-        <%= render partial: "comments/comment", collection: post.comments,
-          as: "comment" %>
-      </div>
-      <% if user_signed_in? && (current_user.following?(post.user) ||
-        current_user == post.user) %>
-        <%= form_for [post, post.comments.build], remote: true do |f| %>
-          <div class="col-md-12">
-            <div class="avatar-user">
-              <%= image_tag current_user.avatar, size: Settings.user.avt_size_40 %>
-            </div>
-            <div class="input-group">
-              <%= f.text_field :content, placeholder: "Add comment",
-                class: "form-control comment-field" %>
-              <div class="input-group-btn">
-                <%= f.submit "Comment", class: "btn btn-default" %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>
+<% end %>
+<%= paginate @posts, theme: "twitter-bootstrap-3" %>

@@ -2,9 +2,18 @@
   <div class="container">
     <div class="navbar-header">
       <%= link_to t(".mlog"), root_path, class: "logo" %>
+      <div class="input-group stylish-input-group">
+        <%= form_tag posts_path, method: :get do %>
+          <%= text_field_tag :q, params[:q], placeholder: "Search",
+            class: "form-control" %>
+        <% end %>
+      </div>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
+        <li class="search-box">
+
+        </li>
         <% if user_signed_in? %>
           <li>
             <%= link_to root_path do %>

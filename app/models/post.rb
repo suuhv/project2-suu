@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   belongs_to :user
 
   scope :order_by_desc, ->{order created_at: :desc}
+  scope :search, ->(search){where "title LIKE ? OR content LIKE ?",
+    "%#{search}%", "%#{search}%"}
   mount_uploader :picture, PictureUploader
 
   has_many :comments, dependent: :destroy

@@ -1,12 +1,13 @@
 en:
   comments:
     comment:
-      edit: "Edit"
       delete: "Delete"
+      edit: "Edit"
       sure: "You sure!"
+    show:
+      add_comment: "Add comment"
+      comment: "Comment"
   layouts:
-    application:
-      base_title: "MLOG"
     footer:
       about: "About"
       author: "© 2017 Quickly. All rights reserved | Design by "
@@ -19,10 +20,51 @@ en:
       logout: "Log out"
       mlog: "MLOG"
       profile: "Profile"
-      settings: " Settings"
+      setting: " Settings"
       signin: "Log in"
       signup: "Sign up"
-      users: "Users"
+      user: "Users"
+    application:
+      base_title: "MLOG"
+  posts:
+    post:
+      add: "Add"
+      add_comment: "Add comment"
+      ago: "Ago"
+      comment: "Comment"
+      delete: "Delete"
+      edit: "Edit"
+      posted: "Posted"
+      sure: "You sure"
+    edit:
+      content: "Content"
+      tag: "Tag"
+      title: "Title"
+      update: "Update post!"
+    index:
+      posted: "Posted"
+      ago: "Ago"
+      edit: "Edit"
+      delete: "Delete"
+    destroy:
+      delete: "Post deleted!"
+    create:
+      created: "Created Post!"
+    update:
+      update_post: "Updated post"
+      update_fail: "Failed"
+  shared:
+    post_form:
+      title: "Title *"
+      add_title: "Add title ..."
+      content: "Content post *"
+      compose: "Compose new post"
+      post: "Post"
+      tag: "Add tag:"
+      add_tag: "Add tag split (,) "
+    stats:
+      following: "Following"
+      followers: "Followers"
   static_pages:
     about:
       about: "About"
@@ -100,6 +142,11 @@ en:
         new_pass: "New password"
     index:
       all_user: "All users"
+      avatar: "Avatar"
+      name: "Name"
+      post: "Post"
+      email: "Email"
+      delete: "Delete"
     unfollow:
       unfollow: "Unfollow"
     follow:
@@ -108,23 +155,12 @@ en:
       followers: "Followers"
     following:
       following: "Following"
-  posts:
-    edit:
-      title: "Title"
-      content: "Content"
-      update: "Update post!"
-      tag: "Tag"
-    post:
-      sure: "You sure"
+    user:
       delete: "Delete"
-      edit: "Edit"
+      sure: "You sure"
     destroy:
-      delete: "Post deleted!"
-    create:
-      created: "Created Post!"
-    update:
-      update_post: "Updated post"
-      update_fail: "Failed"
+      deleted: "User deleted!"
+      er: "Error deleted!"
   views:
     pagination:
       first: "« FIRST"
@@ -132,13 +168,4 @@ en:
       previous: "‹ PREV"
       next: "NEXT ›"
       truncate: "…"
-  shared:
-    post_form:
-      title: "Title *"
-      add_title: "Add title ..."
-      content: "Content post *"
-      compose: "Compose new post"
-      post: "Post"
-      tag: "Add tag:"
-      add_tag: "Add tag split (,) "
-    user_info:
+

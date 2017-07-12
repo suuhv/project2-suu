@@ -1,4 +1,12 @@
-<li>
-  <%= image_tag user.avatar, size: Settings.user.avt_size_50 %>
-  <%= link_to user.name, user %>
-</li>
+<tbody>
+  <td><%= link_to image_tag(user.avatar, size: Settings.user.avt_size_40) %></td>
+  <td><%= link_to user.name, user %></td>
+  <td><%= link_to user.posts.size, user %></td>
+  <% if current_user.is_admin? %>
+    <td><%= user.email %></td>
+    <td>
+    <%= link_to t(".delete"), user, method: :delete,
+      data: {confirm: t(".sure")}, class: "btn btn-danger" %>
+    </td>
+  <% end %>
+</tbody>

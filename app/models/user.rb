@@ -34,4 +34,7 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
+  def self.total_users
+    User.count
+  end
 end

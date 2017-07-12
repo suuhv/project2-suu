@@ -11,6 +11,14 @@ class UsersController < ApplicationController
   def index
     @users = User.select(:id, :avatar, :name, :email).order(:id).page(params[:page])
       .per Settings.user.per_page
+    @total = User.total_users
+  end
+
+  def destroy
+    user = User.find_by id: params[:id]
+
+    user.destroy ? flash[:success] = t(".deleted") : flash.now[:error] = t(".er")
+    redirect_to :back
   end
 
   def following

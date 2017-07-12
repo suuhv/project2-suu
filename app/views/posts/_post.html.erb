@@ -1,6 +1,6 @@
 <div class="well">
   <div class="media-body">
-    <div id="post-<%= post.id %>">
+    <div id="post-<%= post.id %>" class="lay_id">
       <div class="col-md-12">
         <div class="col-md-1">
           <%= link_to image_tag(post.user.avatar, size: Settings.user.avt_size_50),
@@ -14,12 +14,14 @@
             <%= link_to post_path(post), class: "timestamp" do %>
               <%= t ".posted" %> <%= time_ago_in_words post.created_at %>
                 <%= t ".ago" %>
-              <% if current_user == post.user %>
-              <div class="text-right">
-                  <%= link_to t(".edit"), edit_post_path(post) %>
-                  <%= link_to t(".delete"), post, method: :delete,
-                    data: {confirm: t(".sure")} %>
-              </div>
+              <% if user_signed_in? %>
+                <% if current_user == post.user || current_user.is_admin? %>
+                <div class="text-right">
+                    <%= link_to t(".edit"), edit_post_path(post) %>
+                    <%= link_to t(".delete"), post, method: :delete,
+                      data: {confirm: t(".sure")} %>
+                </div>
+                <% end %>
               <% end %>
             <% end %>
           </span>
@@ -29,7 +31,7 @@
         <div class="post-title">
           <%= post.title %>
         </div>
-        <%= post.content %>
+        <%= post.content.html_safe %>
         <div class="tagged-post">
           <% post.tags.each do |tag| %>
             <%= link_to "#"+tag.name, tag %>
@@ -39,27 +41,35 @@
           <%= image_tag post.picture.url if post.picture? %>
         </div>
       </span>
-      <div class="ds">
-        <%= render partial: "comments/comment", collection: post.comments,
-          as: "comment" %>
-      </div>
-      <% if user_signed_in? && (current_user.following?(post.user) ||
-        current_user == post.user) %>
-        <%= form_for [post, post.comments.build], remote: true do |f| %>
-          <div class="col-md-12">
-            <div class="avatar-user">
-              <%= image_tag current_user.avatar, size: Settings.user.avt_size_40 %>
+      <% if user_signed_in? %>
+        <% if (user_signed_in? && (current_user.following?(post.user) ||
+          current_user == post.user)) || current_user.is_admin? %>
+          <button class="toggle-comment btn btn-outline-primary">
+            <span class="glyphicon glyphicon-comment"></span>
+            <%= t(".comment") %>
+          </button>
+          <div class="comment-post">
+            <div class="ds">
+              <%= render partial: "comments/comment", collection: post.comments,
+                as: "comment" %>
             </div>
-            <div class="input-group">
-              <%= f.text_field :content, placeholder: "Add comment",
-                class: "form-control comment-field" %>
-              <div class="input-group-btn">
-                <%= f.submit "Comment", class: "btn btn-default" %>
-              </div>
+              <%= form_for [post, post.comments.build], remote: true do |f| %>
+                <div class="col-md-12">
+                  <div class="avatar-user">
+                    <%= image_tag current_user.avatar, size: Settings.user.avt_size_40 %>
+                  </div>
+                  <div class="input-group">
+                    <%= f.text_field :content, placeholder: t(".add_comment"),
+                      class: "form-control comment-field" %>
+                    <div class="input-group-btn">
+                      <%= f.submit t(".add"), class: "btn btn-default" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>

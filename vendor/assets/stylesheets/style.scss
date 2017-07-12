@@ -1,10 +1,11 @@
+$black: #000000;
 $color-hover: #00f;
-$color-li-solid: #e8e8e8;
-$color-text-header: #352f2f;
+$color-li-solid: #FFFFFF;
+$color-text-header: #FFFFFF;
 $gray-medium-light: #eaeaea;
 $gray: #808080;
 $light-gray: #bbb;
-$navbar-background: #dad9d9;
+$navbar-background: #3D41DB;
 $red: #f00;
 $white: #fff;
 
@@ -18,6 +19,10 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+.toggle-comment {
+  margin-bottom: 10px;
 }
 
 .tagged-post {
@@ -75,47 +80,6 @@ p {
   }
 }
 
-.avatar-user {
-  float: left;
-  width: 7%;
-}
-
-.well {
-  border-style: outset;
-}
-
-.post-title {
-  font-size: 150%;
-  margin-bottom: 10px;
-}
-
-.user-name {
-  font-size: 130%;
-  font-weight: 550;
-}
-
-.username-profile {
-  font-size: 150%;
-}
-
-.post-tag {
-  color: $red;
-}
-
-.tag-cloud {
-  width: 400px;
-  line-height: 1.6em;
-  .s { font-size: 0.8em; }
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }
-}
-
-.new_comment {
-  overflow: hidden;
-  margin-top: 15px;
-}
-
-
 // header
 .logo {
   float: left;
@@ -125,7 +89,7 @@ p {
   margin-right: 10px;
   padding-top: 9px;
   text-transform: uppercase;
-
+  color: $white;
   &:hover {
     color: $white;
     text-decoration: none;
@@ -134,14 +98,6 @@ p {
 
 .btn.btn-circle {
   border-radius: 50px;
-}
-
-.navbar-nav.navbar-right .btn {
-  margin: 10px auto;
-  padding: 4px 20px;
-  position: relative;
-  transition: transform .3s;
-  z-index: 2;
 }
 
 .navbar-fixed-top {
@@ -154,6 +110,40 @@ p {
   width: 100%;
   z-index: 2;
 }
+
+.navbar-default .navbar-nav {
+
+  li {
+    a {
+      color: $white;
+    }
+  }
+  .glyphicon {
+    color: $white;
+  }
+  .dropdown-menu {
+    .glyphicon {
+    color: $black;
+    }
+    li {
+      a {
+        color: $black;
+      }
+    }
+  }
+}
+
+.navbar-nav.navbar-right {
+  .btn {
+    margin: 10px auto;
+    padding: 4px 20px;
+    position: relative;
+    transition: transform .3s;
+    z-index: 2;
+    color: $black;
+  }
+}
+
 
 // footer
 footer {
@@ -367,6 +357,7 @@ span {
 
 .content-ls {
   display: block;
+  padding: 5px 0;
   overflow: hidden;
 }
 
@@ -389,5 +380,56 @@ span {
       input {
       height: 37px;
     }
+  }
+}
+
+.avatar-user {
+  float: left;
+  width: 7%;
+}
+
+.well {
+  border-style: outset;
+}
+
+.post-title {
+  font-size: 150%;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 130%;
+  font-weight: 550;
+}
+
+.username-profile {
+  font-size: 150%;
+}
+
+.post-tag {
+  color: $red;
+}
+
+.tag-cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+.new_comment {
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.comment-info {
+  display: block;
+  overflow: hidden;
+  .text-left {
+    float: left;
+  }
+  .text-right {
+    float: right;
   }
 }

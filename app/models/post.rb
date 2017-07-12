@@ -23,4 +23,8 @@ class Post < ApplicationRecord
       Tag.where(name: n.strip).first_or_create!
     end
   end
+
+  def count_post
+    Post.count
+  end
 end

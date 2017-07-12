@@ -7,18 +7,19 @@
       <div class="col-md-11">
       <span class="username">
         <%= link_to comment.user.name, comment.user %>
+        <%= comment.content %>
       </span>
-      <%= comment.content %>
-      <small>
+      <small class="comment-info">
         <div class="text-left">
         <%= time_ago_in_words(comment.created_at) %>
         </div>
         <div class="text-right">
-          <% if current_user? comment.user ||
-            current_user?(post.user) %>
-              <%= link_to t(".edit"), "#" %>
-              <%= link_to t(".delete"), [comment.post, comment],
-                method: :delete, remote: true, data: {confirm: t(".sure")},class: "delete" %>
+          <% if user_signed_in? %>
+            <% if current_user == comment.user || current_user.is_admin? or comment.post.user == current_user %>
+                <%= link_to t(".edit"), "#" %>
+                <%= link_to t(".delete"), [comment.post, comment],
+                  method: :delete, remote: true, data: {confirm: t(".sure")}, class: "delete" %>
+            <% end %>
           <% end %>
         </div>
       </small>

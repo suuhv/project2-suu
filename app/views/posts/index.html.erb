@@ -15,12 +15,14 @@
             <%= link_to post_path(post), class: "timestamp" do %>
               <%= t ".posted" %> <%= time_ago_in_words post.created_at %>
                 <%= t ".ago" %>
-              <% if current_user == post.user %>
-              <div class="text-right">
-                  <%= link_to t(".edit"), edit_post_path(post) %>
-                  <%= link_to t(".delete"), post, method: :delete,
-                    data: {confirm: t(".sure")} %>
-              </div>
+              <% if user_signed_in?  %>
+                <% if current_user == post.user || current_user.is_admin? %>
+                <div class="text-right">
+                    <%= link_to t(".edit"), edit_post_path(post) %>
+                    <%= link_to t(".delete"), post, method: :delete,
+                      data: {confirm: t(".sure")} %>
+                </div>
+                <% end %>
               <% end %>
             <% end %>
           </span>

@@ -1,9 +1,10 @@
+<%= tinymce %>
 <%= form_for post do |f| %>
   <div class="field">
     <%= f.label :title, t(".title") %>
     <%= f.text_field :title, placeholder: t(".add_title") %>
     <%= f.label :content, t(".content") %>
-    <%= f.text_area :content, placeholder: t(".compose") %>
+    <%= f.text_area :content, placeholder: t(".compose"), class: "tinymce" %>
     <%= f.label :all_tags, t(".tag") %>
     <%= f.text_field :all_tags, placeholder: t(".add_tag") %>
   </div>

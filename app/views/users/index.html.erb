@@ -1,12 +1,22 @@
 <% provide :title, t(".all_user") %>
-<h1><%= t ".all_user" %></h1>
+<h1><%= t ".all_user" %>(<%= @total %>)</h1>
 
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= image_tag user.avatar, size: Settings.user.avt_size_50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t ".avatar" %></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".post" %></th>
+        <% if current_user.is_admin? %>
+          <th><%= t ".email" %></th>
+          <th><%= t ".delete" %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+        <%= render "user", user: user %>
+    <% end %>
+  </table>
   <%= paginate @users, theme: "twitter-bootstrap-3" %>
 </ul>

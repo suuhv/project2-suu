@@ -1,9 +1,9 @@
 <%= form_for [@post, @comment], remote: true do |f| %>
 <div class="input-group">
-  <%= f.text_field :content, placeholder: "Add comment",
+  <%= f.text_field :content, placeholder: t(".add_comment"),
     class: "form-control comment-field" %>
     <div class="input-group-btn">
-      <%= f.submit "Comment", class: "btn btn-default" %>
+      <%= f.submit t(".comment"), class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

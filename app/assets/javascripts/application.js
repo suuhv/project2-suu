@@ -13,8 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require tinymce-jquery
 //= require_tree .
+
+
+tinymce.init({
+  selector:'textarea',
+  plugins: "link media autoresize codesample textcolor colorpicker image emoticons",
+  toolbar: "undo redo | forecolor backcolor | bold italic underline | emoticons | fontsizeselect | alignleft aligncenter alignright alignjustify"
+});
+
 
 $(document).ready(function () {
   $('#message-appli').fadeOut(3000);
+
+  $('.comment-post').hide();
+
+  $('.toggle-comment').click(function(){
+    $(this).next().fadeToggle();
+  });
 })
+
